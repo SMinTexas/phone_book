@@ -56,32 +56,39 @@ def print_entries(phone_book):
     for key, value in phone_book.items():
         print(f'Found entry for {key}: {value}')
 
+        def blank_line():
+    print(" ")
+
+def print_message(message, name, phone):
+    print(f'{message} {name} {phone}')
+    
 # Main program 
 print_menu()
-user_choice = int(input("What do you want to do (1-5)?"))
+user_choice = int(input("What do you want to do (1-5)? "))
+blank_line()
 
 if user_choice == 1:
     name = input("Name: ")
     phone = lookup_name(phonebook_dict, name)
-    print(f'Found entry for {name}: {phone}')
-    print(" ")
-    print_menu()
+    print_message('Found entry for', name, phone)
+    blank_line()
+    #print_menu()
 elif user_choice == 2:
     name = input("Name: ")
     phone = input("Phone Number: ")
     insert_name(phonebook_dict, name, phone)
-    print(f'Entry stored for {name}')
-    print(" ")
-    print_menu()
+    print_message('Entry stored for', name, "")
+    blank_line
+    #print_menu()
 elif user_choice == 3:
     name = input("Name: ")
     delete_name(phonebook_dict, name)
-    print(f'Deleted entry for {name}')
-    print(" ")
-    print_menu()
+    print_message('Deleted entry for', name, "")
+    blank_line()
+    #print_menu()
 elif user_choice == 4:
     print_entries(phonebook_dict)
-    print(" ")
-    print_menu()
+    blank_line()
+    #print_menu()
 else:
     print("Bye")
